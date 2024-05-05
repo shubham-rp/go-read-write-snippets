@@ -7,10 +7,17 @@ import (
 )
 
 func main() {
-	data := []byte("practicego")
-	err := os.WriteFile("test.txt", data, 0222)
-	if err !=nil {
+	// data := []byte("practicego")
+	// err := os.WriteFile("test.txt", data, 0777)
+	// if err !=nil {
+	// 	log.Fatal(err)
+	// }
+	// fmt.Println("success")
+
+	by,err := os.ReadFile("test.txt")
+	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("success")
+
+	fmt.Println(string(by))
 }
