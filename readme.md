@@ -11,3 +11,9 @@
 0555 read & execute  
 0666 read & write  
 0740 owners can read, write & execute; group can only read; others have no permission
+
+Code Snippets based on tutorial from youtube channel - "practicego"
+
+[Youtube Tutorial - Read & write files in Go](https://www.youtube.com/watch?v=lkeh0TRSBfo)
+
+[Youtube Channel - practicego](https://www.youtube.com/@practicego)
