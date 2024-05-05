@@ -1,27 +1,41 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 )
 
 func main() {
 
-	// 1. Append - Read & write 
-	by,err := os.ReadFile("test.txt")
+	// 1-A. Append - Read & write 
+	// by,err := os.ReadFile("test.txt")
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+
+	// fmt.Println(string(by))
+
+	// msg := []byte("\nappended message")
+
+	// by = append(by, msg...)
+	
+	// err = os.WriteFile("test.txt", by, 0777)
+	// if err !=nil {
+	// 	log.Fatal(err)
+	// }
+
+	// 1-B. Append - Open & Write 
+	
+	file, err := os.OpenFile("test.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY,0777)
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer file.Close()
 
-	fmt.Println(string(by))
+	msg := []byte("\nanother appended message")
 
-	msg := []byte("\nappended message")
-
-	by = append(by, msg...)
-	
-	err = os.WriteFile("test.txt", by, 0777)
-	if err !=nil {
+	_,err = file.Write(msg)
+	if err != nil {
 		log.Fatal(err)
 	}
 
